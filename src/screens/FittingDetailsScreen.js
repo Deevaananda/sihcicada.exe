@@ -16,7 +16,7 @@ import {
   DataTable,
   Divider,
 } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import {aiService} from '../services/AIService';
 import {inspectionService} from '../services/InspectionService';
 

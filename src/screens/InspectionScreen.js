@@ -18,7 +18,7 @@ import {
   Chip,
   Divider,
 } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import {inspectionService} from '../services/InspectionService';
 
 const InspectionScreen = ({route, navigation}) => {

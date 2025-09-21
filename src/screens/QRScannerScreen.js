@@ -6,10 +6,11 @@ import {
   Alert,
   TouchableOpacity,
   Vibration,
+  Platform,
 } from 'react-native';
-import {RNCamera} from 'react-native-camera';
+import {Camera} from 'expo-camera';
 import {Button, Card, ActivityIndicator} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import {qrService} from '../services/QRService';
 import {trackingService} from '../services/TrackingService';
 
@@ -77,13 +78,36 @@ const QRScannerScreen = ({navigation}) => {
     setProcessing(false);
   };
 
+  if (hasPermission === null) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#1976D2" />
+        <Text style={styles.loadingText}>Requesting camera permission...</Text>
+      </View>
+    );
+  }
+
+  if (hasPermission === false) {
+    return (
+      <View style={styles.permissionContainer}>
+        <Icon name="camera-alt" size={64} color="#ccc" />
+        <Text style={styles.permissionText}>Camera permission is required to scan QR codes</Text>
+        <Button mode="contained" onPress={requestCameraPermission}>
+          Grant Permission
+        </Button>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <RNCamera
+      <Camera
         style={styles.camera}
-        onBarCodeRead={onBarCodeRead}
-        flashMode={flashOn ? RNCamera.Constants.FlashMode.torch : RNCamera.Constants.FlashMode.off}
-        captureAudio={false}>
+        onBarCodeScanned={scanning ? onBarCodeScanned : undefined}
+        flashMode={flashOn ? Camera.Constants.FlashMode.torch : Camera.Constants.FlashMode.off}
+        barCodeScannerSettings={{
+          barCodeTypes: ['qr', 'pdf417'],
+        }}>
         
         {/* Scanning overlay */}
         <View style={styles.overlay}>
@@ -135,7 +159,7 @@ const QRScannerScreen = ({navigation}) => {
             <Text style={styles.controlText}>Inventory</Text>
           </TouchableOpacity>
         </View>
-      </RNCamera>
+      </Camera>
 
       {/* Sample QR Formats Info */}
       <Card style={styles.infoCard}>
@@ -258,6 +282,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#333',
     marginBottom: 4,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: '#666',
+  },
+  permissionContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#f5f5f5',
+  },
+  permissionText: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginVertical: 20,
+    color: '#666',
   },
 });
 

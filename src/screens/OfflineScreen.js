@@ -16,7 +16,7 @@ import {
   ProgressBar,
   Switch,
 } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { qrService } from '../services/QRService';
 

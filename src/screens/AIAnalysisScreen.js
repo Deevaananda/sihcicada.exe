@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { Card, Title, Paragraph, Chip, Button, Divider } from 'react-native-paper';
 import { LineChart, BarChart, PieChart } from 'react-native-chart-kit';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import { aiService } from '../services/AIService';
 
 const { width } = Dimensions.get('window');

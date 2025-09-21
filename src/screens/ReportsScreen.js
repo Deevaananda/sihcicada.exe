@@ -16,7 +16,7 @@ import {
   Searchbar,
 } from 'react-native-paper';
 import {LineChart, BarChart, PieChart} from 'react-native-chart-kit';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import {reportsService} from '../services/ReportsService';
 
 const screenWidth = Dimensions.get('window').width;

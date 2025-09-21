@@ -1,4 +1,34 @@
 {
+  "expo": {
+    "name": "Indian Railways Track Management",
+    "slug": "indian-railways-track-management",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#5143A3"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.indianrailways.trackmanagement"
+    },
+    "android": {
+      "package": "com.indianrailways.trackmanagement",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  },
   "name": "IndiaRailwayTrackManager",
   "displayName": "IR Track Manager"
 }

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Card, Title, Paragraph, Button, Chip} from 'react-native-paper';
 import {BarChart, PieChart} from 'react-native-chart-kit';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {MaterialIcons} from '@expo/vector-icons';
 import {dashboardService} from '../services/DashboardService';
 
 const screenWidth = Dimensions.get('window').width;
@@ -105,17 +105,17 @@ const DashboardScreen = ({navigation}) => {
       {/* Quick Stats */}
       <View style={styles.statsContainer}>
         <View style={styles.statCard}>
-          <Icon name="qr-code-scanner" size={30} color="#1976D2" />
+                    <MaterialIcons name="qr-code-scanner" size={30} color="#1976D2" />
           <Text style={styles.statNumber}>1,247</Text>
           <Text style={styles.statLabel}>Scanned Today</Text>
         </View>
         <View style={styles.statCard}>
-          <Icon name="inventory" size={30} color="#4CAF50" />
+          <MaterialIcons name="inventory" size={30} color="#4CAF50" />
           <Text style={styles.statNumber}>18.6M</Text>
           <Text style={styles.statLabel}>Total Items</Text>
         </View>
         <View style={styles.statCard}>
-          <Icon name="warning" size={30} color="#FF9800" />
+          <MaterialIcons name="warning" size={30} color="#FF9800" />
           <Text style={styles.statNumber}>23</Text>
           <Text style={styles.statLabel}>Alerts</Text>
         </View>
@@ -210,15 +210,15 @@ const DashboardScreen = ({navigation}) => {
           <Title>System Integration</Title>
           <View style={styles.integrationStatus}>
             <View style={styles.statusItem}>
-              <Icon name="cloud" size={20} color="#4CAF50" />
+              <MaterialIcons name="cloud" size={20} color="#4CAF50" />
               <Text style={styles.statusText}>UDM Portal: Connected</Text>
             </View>
             <View style={styles.statusItem}>
-              <Icon name="cloud" size={20} color="#4CAF50" />
+              <MaterialIcons name="cloud" size={20} color="#4CAF50" />
               <Text style={styles.statusText}>TMS Portal: Connected</Text>
             </View>
             <View style={styles.statusItem}>
-              <Icon name="sync" size={20} color="#2196F3" />
+              <MaterialIcons name="sync" size={20} color="#2196F3" />
               <Text style={styles.statusText}>Last Sync: 5 mins ago</Text>
             </View>
           </View>
